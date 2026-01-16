@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - CraftOra</title>
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+<header>
+  <h1>CraftOra</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="products.html">Products</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section>
+  <h2>Contact Us</h2>
+
+  <div class="contact-info">
+    <p><strong>Email:</strong> craftora2078@gmail.com</p>
+    <p><strong>Phone:</strong> +880 1330 842078</p>
+    <p><strong>Address:</strong> Daffodil Smart City, Birulia, Dhaka</p>
+    <p><strong>Business Hours:</strong> Monday – Friday, 9 AM – 5 PM</p>
+  </div>
+
+  <form id="contactForm">
+    <label for="name">Name</label>
+    <input type="text" id="name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" required>
+
+    <label for="subject">Subject</label>
+    <input type="text" id="subject">
+
+    <label for="message">Message</label>
+    <textarea id="message" rows="5" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+
+  <p style="text-align:center; margin-top:20px;">
+    We aim to respond within 24 hours. For urgent inquiries, please call us directly.
+  </p>
+</section>
+
+<footer>
+  <p>&copy; 2026 CraftOra. All rights reserved.</p>
+</footer>
+
+<script>
+  const form = document.getElementById("contactForm");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Thank you for your message! We'll get back to you soon.");
+      form.reset();
+    });
+  }
+</script>
+
+</body>
+</html>
