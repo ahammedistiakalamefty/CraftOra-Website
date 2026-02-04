@@ -29,42 +29,42 @@
   <div class="products-grid">
 
     <div class="product">
-      <img src="./image/Necklece.jpeg" alt="Handmade Necklace">
+      <img src="./image/Necklece.jpeg" alt="Handmade Necklace" onclick="showPopup()" style="cursor: pointer;">
       <h3>Handmade Necklace</h3>
       <p>Beautiful hand-strung beads in vibrant colors. Perfect for everyday wear.</p>
       <p class="price">300 TK</p>
     </div>
 
     <div class="product">
-      <img src="./image/Hnad Made Curi.jpeg" alt="Handmade Curi">
+      <img src="./image/Hnad Made Curi.jpeg" alt="Handmade Curi" onclick="showPopup()" style="cursor: pointer;">
       <h3>Handmade Curi</h3>
       <p>Customizable handmade curi with engraved initials. Durable and stylish.</p>
       <p class="price">200 TK</p>
     </div>
 
     <div class="product">
-      <img src="./image/Ear Ring.jpeg" alt="Artisan Earrings">
+      <img src="./image/Ear Ring.jpeg" alt="Artisan Earrings" onclick="showPopup()" style="cursor: pointer;">
       <h3>Artisan Earrings</h3>
       <p>Elegant handmade earrings designed for comfort and everyday style.</p>
       <p class="price">30 TK</p>
     </div>
 
     <div class="product">
-      <img src="./image/wood necklece.jpeg" alt="Wood Necklace">
+      <img src="./image/wood necklece.jpeg" alt="Wood Necklace" onclick="showPopup()" style="cursor: pointer;">
       <h3>Wood Necklace</h3>
       <p>Handcrafted wooden necklace with a natural finish and timeless appeal.</p>
       <p class="price">100 TK</p>
     </div>
 
     <div class="product">
-      <img src="./image/ring.jpeg" alt="Ring">
+      <img src="./image/ring.jpeg" alt="Ring" onclick="showPopup()" style="cursor: pointer;">
       <h3>Handmade Ring</h3>
       <p>Carefully handcrafted ring offering simple elegance and lasting style.</p>
       <p class="price">50 TK</p>
     </div>
 
     <div class="product">
-      <img src="./image/glass jar.jpeg" alt="Art Glass Jar">
+      <img src="./image/glass jar.jpeg" alt="Art Glass Jar" onclick="showPopup()" style="cursor: pointer;">
       <h3>Art Glass Jar</h3>
       <p>Handcrafted art glass jar perfect for décor or creative storage.</p>
       <p class="price">150 TK</p>
@@ -78,9 +78,36 @@
   </p>
 </section>
 
+<!-- WhatsApp + Facebook Order Popup -->
+<div id="orderPopup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <h2>Order Now</h2>
+    <a href="https://wa.me/01330842078" target="_blank" class="btn whatsapp">Order via WhatsApp</a>
+    <a href="https://www.facebook.com/profile.php?id=61585975903161" target="_blank" class="btn fb">Order via Facebook</a>
+  </div>
+</div>
+
 <footer>
   <p>&copy; 2026 CraftOra. All rights reserved.</p>
 </footer>
+
+<script>
+function showPopup() {
+  document.getElementById('orderPopup').style.display = 'flex';
+}
+
+function closePopup() {
+  document.getElementById('orderPopup').style.display = 'none';
+}
+
+// Close popup when clicking outside the content
+window.onclick = function(event) {
+  if (event.target == document.getElementById('orderPopup')) {
+    closePopup();
+  }
+}
+</script>
 
 </body>
 </html>

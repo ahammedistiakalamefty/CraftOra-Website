@@ -35,11 +35,10 @@ nav a {
   font-size: 1rem;
 }
 
-nav a:hover{
+nav a:hover {
   background-color: rgb(192, 181, 181);
 }
 
-/* Section */
 section {
   padding: 40px 20px;
   max-width: 1200px;
@@ -57,7 +56,6 @@ section p {
   margin: 0 auto 30px;
 }
 
-/* Products Grid */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -83,6 +81,11 @@ section p {
   height: 200px;
   object-fit: cover;
   border-radius: 8px;
+  transition: opacity 0.3s; /* Added for smooth hover effect on images */
+}
+
+.product img:hover {
+  opacity: 0.9; /* Slight opacity change on hover to indicate clickability */
 }
 
 .product h3 {
@@ -100,7 +103,6 @@ section p {
   margin-top: 8px;
 }
 
-/* Footer */
 footer {
   background-color: #f8f8f8;
   text-align: center;
@@ -108,7 +110,95 @@ footer {
   font-size: 0.9rem;
 }
 
-/* 📱 Mobile Responsive */
+/* ✅ WhatsApp + Facebook Order Popup */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure popup is on top */
+  animation: fadeIn 0.3s ease-in-out; /* Added fade-in animation */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.popup-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 320px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Enhanced shadow for depth */
+  animation: slideIn 0.3s ease-out; /* Added slide-in animation */
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.popup-content h2 {
+  margin-bottom: 20px;
+}
+
+/* ✅ Buttons */
+.btn {
+  display: block;
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s; /* Added transitions for buttons */
+}
+
+.btn:hover {
+  transform: scale(1.05); /* Slight scale on hover */
+}
+
+/* ✅ WhatsApp Button */
+.btn.whatsapp {
+  background: #25D366;
+}
+
+.btn.whatsapp:hover {
+  background: #20c157; /* Darker green on hover */
+}
+
+/* ✅ Facebook Button */
+.btn.fb {
+  background: #1877f2;
+}
+
+.btn.fb:hover {
+  background: #166fe5; /* Darker blue on hover */
+}
+
+/* ✅ Close Button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.close:hover {
+  color: #ff0000; /* Red on hover for close */
+}
+
 @media (max-width: 768px) {
   header h1 {
     font-size: 1.6rem;
@@ -124,5 +214,10 @@ footer {
 
   .product img {
     height: 180px;
+  }
+
+  .popup-content {
+    width: 90%; /* Make popup more responsive on mobile */
+    padding: 20px;
   }
 }
