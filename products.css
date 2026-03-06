@@ -7,18 +7,21 @@ body {
   margin: 0;
   padding: 0;
   color: #333;
+  background-color: #f9f9f9;
 }
 
 /* Header */
 header {
-  background-color: #f8f8f8;
+  background-color: #fff;
   padding: 20px;
   text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 header h1 {
   margin: 0;
   font-size: 2rem;
+  color: #444;
 }
 
 nav {
@@ -31,14 +34,17 @@ nav {
 nav a {
   margin: 8px 15px;
   text-decoration: none;
-  color: black;
+  color: #555;
   font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
 nav a:hover {
-  background-color: rgb(192, 181, 181);
+  color: #007bff;
 }
 
+/* Section */
 section {
   padding: 40px 20px;
   max-width: 1200px;
@@ -48,32 +54,37 @@ section {
 section h2 {
   text-align: center;
   margin-bottom: 10px;
+  color: #333;
 }
 
 section p {
   text-align: center;
   max-width: 800px;
   margin: 0 auto 30px;
+  color: #666;
 }
 
+/* Products Grid */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
 }
 
 .product {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 15px;
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
   background: #fff;
+  cursor: pointer;
 }
 
 .product:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border-color: #ddd;
 }
 
 .product img {
@@ -81,143 +92,159 @@ section p {
   height: 200px;
   object-fit: cover;
   border-radius: 8px;
-  transition: opacity 0.3s; /* Added for smooth hover effect on images */
-}
-
-.product img:hover {
-  opacity: 0.9; /* Slight opacity change on hover to indicate clickability */
+  margin-bottom: 10px;
 }
 
 .product h3 {
-  margin: 12px 0 5px;
+  margin: 10px 0 5px;
+  font-size: 1.1rem;
 }
 
 .product p {
   margin: 5px 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  color: #777;
 }
 
 .price {
   font-weight: bold;
-  color: #007bff;
-  margin-top: 8px;
+  color: #28a745;
+  margin-top: 10px;
+  font-size: 1.1rem;
 }
 
-footer {
-  background-color: #f8f8f8;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-}
-
-/* ✅ WhatsApp + Facebook Order Popup */
-.popup {
-  display: none;
+/* --- NEW: Product Details Modal Styles --- */
+.modal {
+  display: none; /* Hidden by default */
   position: fixed;
-  top: 0;
+  z-index: 2000;
   left: 0;
-  height: 100%;
+  top: 0;
   width: 100%;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+  backdrop-filter: blur(5px);
   align-items: center;
-  z-index: 1000; /* Ensure popup is on top */
-  animation: fadeIn 0.3s ease-in-out; /* Added fade-in animation */
+  justify-content: center;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.popup-content {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-  width: 320px;
+.modal-content {
+  background-color: #fff;
+  margin: auto;
+  padding: 0;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Enhanced shadow for depth */
-  animation: slideIn 0.3s ease-out; /* Added slide-in animation */
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  animation: slideUp 0.4s ease-out;
+  overflow: hidden;
 }
 
-@keyframes slideIn {
-  from { transform: translateY(-50px); opacity: 0; }
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
 
-.popup-content h2 {
+.modal-body {
+  padding: 20px;
+  text-align: center;
+}
+
+.modal-body img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.modal-body h2 {
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.modal-price {
+  font-size: 1.5rem;
+  color: #28a745;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.modal-body p {
+  line-height: 1.6;
+  color: #555;
   margin-bottom: 20px;
 }
 
-/* ✅ Buttons */
-.btn {
+/* Related Products Section inside Modal */
+.related-section {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-top: 1px solid #eee;
+}
+
+.related-section h3 {
+  margin-top: 0;
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.related-grid {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.related-item {
+  width: 80px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.related-item img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.related-item span {
   display: block;
-  margin: 12px 0;
+  font-size: 0.75rem;
+  margin-top: 4px;
+  color: #555;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  width: 100%;
   padding: 12px;
+  margin: 5px 0;
   border-radius: 8px;
   text-decoration: none;
   color: white;
   font-weight: bold;
-  transition: background-color 0.3s, transform 0.2s; /* Added transitions for buttons */
+  transition: transform 0.2s, background-color 0.3s;
 }
 
 .btn:hover {
-  transform: scale(1.05); /* Slight scale on hover */
+  transform: scale(1.02);
 }
 
-/* ✅ WhatsApp Button */
-.btn.whatsapp {
-  background: #25D366;
-}
+.btn.whatsapp { background: #25D366; }
+.btn.whatsapp:hover { background: #20c157; }
 
-.btn.whatsapp:hover {
-  background: #20c157; /* Darker green on hover */
-}
+.btn.fb { background: #1877f2; }
+.btn.fb:hover { background: #166fe5; }
 
-/* ✅ Facebook Button */
-.btn.fb {
-  background: #1877f2;
-}
-
-.btn.fb:hover {
-  background: #166fe5; /* Darker blue on hover */
-}
-
-/* ✅ Close Button */
+/* Close Button */
 .close {
   position: absolute;
   top: 10px;
-  right: 18px;
-  font-size: 24px;
-  cursor: pointer;
-  color: #333;
-  transition: color 0.3s;
-}
-
-.close:hover {
-  color: #ff0000; /* Red on hover for close */
-}
-
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 1.6rem;
-  }
-
-  nav {
-    flex-direction: column;
-  }
-
-  nav a {
-    margin: 6px 0;
-  }
-
-  .product img {
-    height: 180px;
-  }
-
-  .popup-content {
-    width: 90%; /* Make popup more responsive on mobile */
-    padding: 20px;
-  }
-}
