@@ -31,11 +31,15 @@ nav {
 }
 
 nav a {
-  margin: 8px 12px;
+  margin: 8px 15px;
   text-decoration: none;
   color: black;
   font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
 }
+
 
 nav a:hover{
   background-color: rgb(192, 181, 181);
