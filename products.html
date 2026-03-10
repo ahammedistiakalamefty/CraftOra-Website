@@ -1,191 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Products - CraftOra</title>
-  <link rel="stylesheet" href="products.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CraftOra Products</title>
+<link rel="stylesheet" href="products.css">
 </head>
+
 <body>
 
 <header>
-  <h1>CraftOra</h1>
-  <nav>
-    <a href="./index.html"><strong>Home</strong></a>
-    <a href="./about.html"><strong>About</strong></a>
-    <a href="./products.html"><strong>Products</strong></a>
-    <a href="./contact.html"><strong>Contact</strong></a>
-  </nav>
+<h1>CraftOra</h1>
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Products</a>
+<a href="#">Contact</a>
+</nav>
 </header>
 
 <section>
-  <h2>Our Products</h2>
-  <p>
-    Explore our collection of handmade jewelry and crafts.  
-    Each item is unique and made with love.  
-    <strong>Click on any item below to view details and order.</strong>
-  </p>
 
-  <div class="products-grid">
+<h2>Our Categories</h2>
+<p>Click a category to see more items</p>
 
-    <!-- Product 1 -->
-    <div class="product" onclick="openProductDetails('necklace', 'Handmade Necklace', 'Beautiful hand-strung beads in vibrant colors. Perfect for everyday wear.', '300 TK', './image/Necklece.jpeg')">
-      <img src="./image/Necklece.jpeg" alt="Handmade Necklace">
-      <h3>Handmade Necklace</h3>
-      <p>Beautiful hand-strung beads.</p>
-      <p class="price">300 TK</p>
-    </div>
+<div class="products-grid">
 
-    <!-- Product 2 -->
-    <div class="product" onclick="openProductDetails('curi', 'Handmade Curi', 'Customizable handmade curi with engraved initials. Durable and stylish.', '200 TK', './image/Hnad Made Curi.jpeg')">
-      <img src="./image/Hnad Made Curi.jpeg" alt="Handmade Curi">
-      <h3>Handmade Curi</h3>
-      <p>Customizable with initials.</p>
-      <p class="price">200 TK</p>
-    </div>
+<div class="product" onclick="showCategory('necklace')">
+<img src="./image/Necklece.jpeg">
+<h3>Necklace</h3>
+</div>
 
-    <!-- Product 3 -->
-    <div class="product" onclick="openProductDetails('earring', 'Artisan Earrings', 'Elegant handmade earrings designed for comfort and everyday style.', '30 TK', './image/Ear Ring.jpeg')">
-      <img src="./image/Ear Ring.jpeg" alt="Artisan Earrings">
-      <h3>Artisan Earrings</h3>
-      <p>Designed for comfort.</p>
-      <p class="price">30 TK</p>
-    </div>
+<div class="product" onclick="showCategory('earring')">
+<img src="./image/Ear Ring.jpeg">
+<h3>Earrings</h3>
+</div>
 
-    <!-- Product 4 -->
-    <div class="product" onclick="openProductDetails('wood', 'Wood Necklace', 'Handcrafted wooden necklace with a natural finish and timeless appeal.', '100 TK', './image/wood necklece.jpeg')">
-      <img src="./image/wood necklece.jpeg" alt="Wood Necklace">
-      <h3>Wood Necklace</h3>
-      <p>Natural finish.</p>
-      <p class="price">100 TK</p>
-    </div>
+<div class="product" onclick="showCategory('ring')">
+<img src="./image/ring.jpeg">
+<h3>Ring</h3>
+</div>
 
-    <!-- Product 5 -->
-    <div class="product" onclick="openProductDetails('ring', 'Handmade Ring', 'Carefully handcrafted ring offering simple elegance and lasting style.', '50 TK', './image/ring.jpeg')">
-      <img src="./image/ring.jpeg" alt="Ring">
-      <h3>Handmade Ring</h3>
-      <p>Simple elegance.</p>
-      <p class="price">50 TK</p>
-    </div>
+<div class="product" onclick="showCategory('curi')">
+<img src="./image/Hnad Made Curi.jpeg">
+<h3>Curi</h3>
+</div>
 
-    <!-- Product 6 -->
-    <div class="product" onclick="openProductDetails('jar', 'Art Glass Jar', 'Handcrafted art glass jar perfect for décor or creative storage.', '150 TK', './image/glass jar.jpeg')">
-      <img src="./image/glass jar.jpeg" alt="Art Glass Jar">
-      <h3>Art Glass Jar</h3>
-      <p>Perfect for décor.</p>
-      <p class="price">150 TK</p>
-    </div>
+<div class="product" onclick="showCategory('glassjar')">
+<img src="./image/glass jar.jpeg">
+<h3>Glass Jar</h3>
+</div>
 
-    <!-- NEW PRODUCT 7 -->
-    <div class="product" onclick="openProductDetails('bracelet', 'Earring', 'Colorful beaded bracelet with adjustable string. Great for gifts.', '40 TK', './image/ring.jpeg')">
-      <img src="./image/Earring.jpeg" alt="Ear Ring">
-      <h3>Ear Ring</h3>
-      <p>Adjustable string.</p>
-      <p class="price">40 TK</p>
-    </div>
+</div>
 
-   
-
-  </div>
-
-  <p style="margin-top: 40px;">
-    Interested in a product?
-    <a href="contact.html">Contact us</a> to place an order or request customization.
-  </p>
 </section>
 
-<!-- Product Details Modal (The "More Item" View) -->
-<div id="productDetailsModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    
-    <div class="modal-body">
-      <img id="modalImg" src="" alt="Product Image">
-      <h2 id="modalTitle">Product Title</h2>
-      <p class="modal-price" id="modalPrice">00 TK</p>
-      <p id="modalDesc">Product description goes here.</p>
-      
-      <div class="order-options">
-        <a href="#" id="waLink" target="_blank" class="btn whatsapp">Order via Whatsapp</a>
-        <a href="https://www.facebook.com/profile.php?id=61585975903161" target="_blank" class="btn fb">Order via Facebook</a>
-      </div>
-    </div>
 
-    <!-- Related Products Section -->
-    <div class="related-section">
-      <h3>You might also like:</h3>
-      <div class="related-grid">
-        <div class="related-item" onclick="openProductDetails('necklace', 'Handmade Necklace', 'Beautiful hand-strung beads.', '300 TK', './image/Necklece.jpeg')">
-          <img src="./image/Necklece.jpeg" alt="Necklace">
-          <span>Necklace</span>
-        </div>
-        <div class="related-item" onclick="openProductDetails('earring', 'Artisan Earrings', 'Elegant handmade earrings.', '30 TK', './image/Ear Ring.jpeg')">
-          <img src="./image/Ear Ring.jpeg" alt="Earrings">
-          <span>Earrings</span>
-        </div>
-        <div class="related-item" onclick="openProductDetails('ring', 'Handmade Ring', 'Simple elegance.', '50 TK', './image/ring.jpeg')">
-          <img src="./image/ring.jpeg" alt="Ring">
-          <span>Ring</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<section>
 
-<!-- Generic Order Popup (Optional, kept from original) -->
-<div id="orderPopup" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="closePopup()">&times;</span>
-    <h2>Order Now</h2>
-    <a href="https://wa.me/8801330842078" target="_blank" class="btn whatsapp">Order via Whatsapp</a>
-    <a href="https://www.facebook.com/profile.php?id=61585975903161" target="_blank" class="btn fb">Order via Facebook</a>
-  </div>
-</div>
+<h2>More Items</h2>
+
+<div id="categoryItems" class="products-grid"></div>
+
+</section>
+
 
 <footer>
-  <p>&copy; 2026 CraftOra. All rights reserved.</p>
+<p>© 2026 CraftOra</p>
 </footer>
 
+
 <script>
-// Function to open the detailed product modal
-function openProductDetails(id, title, desc, price, imgSrc) {
-  // Populate the modal with data
-  document.getElementById('modalTitle').innerText = title;
-  document.getElementById('modalDesc').innerText = desc;
-  document.getElementById('modalPrice').innerText = price;
-  document.getElementById('modalImg').src = imgSrc;
-  
-  // Create a dynamic WhatsApp link with the product name
-  const waMessage = `Hello, I am interested in buying the ${title} for ${price}.`;
-  const waLink = `https://wa.me/8801330842078?text=${encodeURIComponent(waMessage)}`;
-  document.getElementById('waLink').href = waLink;
 
-  // Show the modal
-  document.getElementById('productDetailsModal').style.display = 'flex';
+const products = [
+
+{category:'necklace',name:'Wood Necklace',price:'100 TK',img:'./image/wood necklece.jpeg'},
+{category:'necklace',name:'Handmade Necklace',price:'300 TK',img:'./image/Necklece.jpeg'},
+
+{category:'earring',name:'Artisan Earrings',price:'30 TK',img:'./image/Ear Ring.jpeg'},
+{category:'earring',name:'Color Earrings',price:'40 TK',img:'./image/Earring.jpeg'},
+
+{category:'ring',name:'Handmade Ring',price:'50 TK',img:'./image/ring.jpeg'},
+
+{category:'curi',name:'Handmade Curi',price:'200 TK',img:'./image/Hnad Made Curi.jpeg'},
+
+{category:'glassjar',name:'Handmade Glass Jar',price:'150 TK',img:'./image/glass jar.jpeg'}
+
+
+];
+
+
+function showCategory(cat){
+
+const container=document.getElementById("categoryItems");
+container.innerHTML="";
+
+const filtered=products.filter(p=>p.category===cat);
+
+filtered.forEach(p=>{
+
+const message=`Hello, I want to order ${p.name} for ${p.price}`;
+const waLink=`https://wa.me/8801330842078?text=${encodeURIComponent(message)}`;
+
+container.innerHTML+=`
+
+<div class="product">
+
+<img src="${p.img}">
+<h3>${p.name}</h3>
+<p class="price">${p.price}</p>
+
+<div class="order-buttons">
+
+<a href="${waLink}" target="_blank" class="btn whatsapp">
+Order via WhatsApp
+</a>
+
+<a href="https://www.facebook.com/profile.php?id=61585975903161"
+target="_blank" class="btn facebook">
+Order via Facebook
+</a>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+container.scrollIntoView({behavior:"smooth"});
+
 }
 
-// Close the product details modal
-function closeModal() {
-  document.getElementById('productDetailsModal').style.display = 'none';
-}
-
-// Close the generic order popup
-function closePopup() {
-  document.getElementById('orderPopup').style.display = 'none';
-}
-
-// Close popups when clicking outside
-window.onclick = function(event) {
-  const productModal = document.getElementById('productDetailsModal');
-  const orderModal = document.getElementById('orderPopup');
-  
-  if (event.target == productModal) {
-    closeModal();
-  }
-  if (event.target == orderModal) {
-    closePopup();
-  }
-}
 </script>
 
 </body>
